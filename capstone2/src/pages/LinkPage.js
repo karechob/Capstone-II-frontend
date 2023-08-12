@@ -1,8 +1,35 @@
-import React from 'react'
+import { React, useState } from 'react'
+import { useNavigate } from "react-router-dom"; 
 
 function LinkPage() {
+  const [link, setLink] = useState("");
+  const navigate = useNavigate();
+
+  function handleLink(event){
+    setLink(event.target.value); 
+  }
+
+  function handleAnalyze(){
+    //navigate("/metrics"); 
+    navigate(`/metrics?link=${encodeURIComponent(link)}`);
+  }
+
+  console.log(link)
+
   return (
-    <div>Page where user will provide the link</div>
+    <div>
+      <h1>Page where user will provide the link</h1>
+
+      <input
+        id= "enter-link"
+        type="text"
+        value={link}
+        onChange={handleLink} 
+        placeholder="Enter repository link"
+      />
+      <button onClick={handleAnalyze}>Analyze</button>
+      
+    </div>
   )
 }
 
