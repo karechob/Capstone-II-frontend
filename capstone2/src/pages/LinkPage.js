@@ -15,7 +15,7 @@ function LinkPage() {
 
   return (
     <div>
-      <h1>Page where user will provide the link</h1>
+      <h1>Enter Link to Your Repo!</h1>
 
       <input
         id= "enter-link"
@@ -24,7 +24,7 @@ function LinkPage() {
         onChange={handleLink} 
         placeholder="Enter repository link"
       />
-      <button onClick={handleAnalyze}>Analyze</button>
+      <button onClick={handleAnalyze}>Analyze Metrics</button>
       
     </div>
   )
