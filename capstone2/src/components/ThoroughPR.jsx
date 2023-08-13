@@ -2,7 +2,6 @@ import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-//Thoroughly reviewed PRS is the percentage of merged pull requests with at least one regular or robust comment. 
 
 function ThoroughPR() {
   const [owner, setOwner] = useState("");
@@ -24,8 +23,8 @@ function ThoroughPR() {
     async function fetchPullRequests() {
         try {
           if (owner && repo) {
-            console.log(owner);
-            console.log(repo);
+            //console.log(owner);
+            //console.log(repo);
 
             let allPullRequests = [];
             let page = 1;
@@ -39,8 +38,10 @@ function ThoroughPR() {
                     Authorization: `Bearer ${authToken}`,
                   },
                   params: {
-                    state: 'closed',
+                    state: "closed",
+                    base: "main",
                     page: page,
+                    per_page: 100,
                   },
                 }
               );
@@ -58,9 +59,10 @@ function ThoroughPR() {
       
             let totalRequests = allPullRequests.length;
             let thoroughRequests = 0;
-            console.log(totalRequests);
+            console.log(totalRequests + " total");
       
             for (const request of allPullRequests) {
+
               const commentsResponse = await axios.get(request.comments_url, {
                 headers:  {
                     Authorization: `Bearer ${authToken}`,
@@ -73,9 +75,9 @@ function ThoroughPR() {
               }
             }
       
-            console.log(thoroughRequests);
+            //console.log(thoroughRequests + " thorough");
             setPercentage(Math.round((thoroughRequests / totalRequests) * 100));
-            console.log(percentage);
+            //console.log(percentage + "%");
           }
         } catch (error) {
           console.log("error fetching pull requests " + error);
@@ -89,10 +91,22 @@ function ThoroughPR() {
   return (
     <div>
       <h1>Thorough PRs</h1>
+      <h4>Thoroughly reviewed PRS is the percentage of merged pull requests with at least one comment.
+          This metric helps you understand your team's code review quality. The higher the percentage, 
+          the better off you and your team are! 
+          <br></br>
+          Please note our metric measures to the nearest whole number. 
+      </h4>
       <p>Link: {link} </p>
       <p>Owner: {owner} </p>
       <p>Repo: {repo} </p>
-      <p>Percentage of Thorough PRs to Nearest Whole: {percentage}% </p>
+
+      {percentage === "" ? ( 
+        <p>Percentage of Thorough PRs: Calculating...</p>
+      ) : (
+        <p>Percentage of Thorough PRs: {percentage}% </p>
+      )}
+
     </div>
   );
 }
