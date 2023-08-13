@@ -10,11 +10,8 @@ function LinkPage() {
   }
 
   function handleAnalyze(){
-    //navigate("/metrics"); 
     navigate(`/metrics?link=${encodeURIComponent(link)}`);
   }
-
-  console.log(link)
 
   return (
     <div>
