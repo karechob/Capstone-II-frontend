@@ -99,6 +99,7 @@ function ThoroughPR() {
                 Authorization: `Bearer ${authToken}`,
               },
             });
+
             const comments = commentsResponse.data;
 
             if (comments.length > 0) {
@@ -109,11 +110,7 @@ function ThoroughPR() {
           //console.log(thoroughRequests);
           setPercentage(Math.round((thoroughRequests / totalRequests) * 100));
           //console.log(percentage);
-          setNotThorough(
-            Math.round(
-              ((totalRequests - thoroughRequests) / totalRequests) * 100
-            )
-          );
+          setNotThorough(Math.round(((totalRequests - thoroughRequests) / totalRequests) * 100));
           //console.log(notThorough);
         }
       } catch (error) {
