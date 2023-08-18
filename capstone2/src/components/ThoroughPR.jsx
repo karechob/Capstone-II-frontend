@@ -11,7 +11,6 @@ function ThoroughPR() {
   const [repo, setRepo] = useState("");
   const [percentage, setPercentage] = useState("");
   const [notThorough, setNotThorough] = useState("");
-  const authToken = process.env.REACT_APP_GITHUB_API_KEY;
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -52,74 +51,31 @@ function ThoroughPR() {
       setRepo(tokens[4]);
     }
 
-    async function fetchPullRequests() {
+    async function fetchPullRequests(owner, repo) { 
+      console.log(owner)
+      console.log(repo);
+      
       try {
-        if (owner && repo) {
-          //console.log(owner);
-          //console.log(repo);
+        const response = await axios.get(`http://localhost:8080/api/github/thoroughPRs`, {
+          params: {
+            owner: owner,
+            repo: repo,
+          },
+        });
 
-          let allPullRequests = [];
-          let page = 1;
-          let hasMorePullRequests = true;
+        const data = response.data;
+        setPercentage(data.percentage)
+        setNotThorough(data.notThorough)
 
-          while (hasMorePullRequests) {
-            const response = await axios.get(
-              `https://api.github.com/repos/${owner}/${repo}/pulls`,
-              {
-                headers: {
-                  Authorization: `Bearer ${authToken}`,
-                },
-                params: {
-                  state: "closed",
-                  base: "main",
-                  page: page,
-                  per_page: 100,
-                },
-              }
-            );
-
-            const pullRequests = response.data;
-            allPullRequests = allPullRequests.concat(pullRequests);
-
-            // Check if there are more pages
-            if (pullRequests.length === 0) {
-              hasMorePullRequests = false;
-            } else {
-              page++;
-            }
-          }
-
-          let totalRequests = allPullRequests.length;
-          let thoroughRequests = 0;
-          //console.log(totalRequests + " total");
-
-          for (const request of allPullRequests) {
-            const commentsResponse = await axios.get(request.comments_url, {
-              headers: {
-                Authorization: `Bearer ${authToken}`,
-              },
-            });
-
-            const comments = commentsResponse.data;
-
-            if (comments.length > 0) {
-              thoroughRequests++;
-            }
-          }
-
-          //console.log(thoroughRequests);
-          setPercentage(Math.round((thoroughRequests / totalRequests) * 100));
-          //console.log(percentage);
-          setNotThorough(Math.round(((totalRequests - thoroughRequests) / totalRequests) * 100));
-          //console.log(notThorough);
-        }
       } catch (error) {
-        console.log("error fetching pull requests " + error);
+        console.log("error in fetching pull requests " + error);
       }
     }
 
     deconstructLink();
-    fetchPullRequests();
+    if (owner && repo) {
+      fetchPullRequests(owner, repo);
+    }
   }, [link, owner, repo]);
 
   return (
