@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
-import { Pie,Bar,Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
-import { CategoryScale , Colors} from "chart.js";
+import { Colors} from "chart.js";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 Chart.register(Colors);
