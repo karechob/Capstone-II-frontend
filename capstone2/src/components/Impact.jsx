@@ -63,7 +63,11 @@ const Impact = () =>{
     return(
         <div>
             {display?(
-            <div>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
                 <div style={{ width: 400 }}>
                 <Doughnut
                     data={{
