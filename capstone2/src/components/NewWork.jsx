@@ -25,10 +25,11 @@ const NewWork = () => {
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7); 
 
+        //will keep looping until the date is updated to the current date
         while (sevenDaysAgo <= today) {
             const currentDate = sevenDaysAgo.toISOString().split('T')[0];
-            console.log(currentDate)
             myMap.set(currentDate, 0);
+            //increment the date by one day
             sevenDaysAgo.setDate(sevenDaysAgo.getDate() + 1); 
         }
     }
@@ -41,11 +42,17 @@ const NewWork = () => {
             owner: owner,
             repo: repo
         })
+        //filter the dataset by date
         result.data.forEach((ele)=>{
+            //get the total number of lines of new code
+            let totalNewCode = ele.stats.additions-ele.stats.deletions;
+            if(totalNewCode <0){
+                totalNewCode = 0;
+            }
             if(myMap.has(ele.date)){
-                myMap.set(ele.date,myMap.get(ele.date)+(ele.stats.additions-ele.stats.deletions))
+                myMap.set(ele.date,myMap.get(ele.date)+totalNewCode)
             }else{
-                myMap.set(ele.date,(ele.stats.additions-ele.stats.deletions));
+                myMap.set(ele.date,totalNewCode);
             }
         })
         arr = Array.from(myMap);
