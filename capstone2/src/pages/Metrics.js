@@ -2,6 +2,7 @@ import React from "react";
 import ThoroughPR from "../components/ThoroughPR";
 import Impact from "../components/Impact";
 import UnreviewedPR from "../components/UnreviewedPR";
+import NewWork from "../components/NewWork";
 
 function Metrics() {
   return (
@@ -10,6 +11,7 @@ function Metrics() {
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
+      <NewWork/>
     </div>
   );
 }
