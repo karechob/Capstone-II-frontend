@@ -24,7 +24,6 @@ const NewWork = () => {
         const today = new Date();
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7); 
-        console.log(sevenDaysAgo);
 
         while (sevenDaysAgo <= today) {
             const currentDate = sevenDaysAgo.toISOString().split('T')[0];
@@ -90,7 +89,7 @@ const NewWork = () => {
                         plugins: {
                             title: {
                               display: true,
-                              text: 'New lines of code added each day (starting from 7 days ago)',
+                              text: 'Lines of new code added per day (from 7 days ago)',
                             },
                         }
                     }}
