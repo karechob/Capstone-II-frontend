@@ -19,9 +19,25 @@ const NewWork = () => {
     const [fetchData, setFetchedData] = useState([]);
     const [display,setDisplay] = useState(false);
 
+    // initialize myMap by using a while loop to set the date as key and value to 0
+    function initializeMap(){
+        const today = new Date();
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7); 
+        console.log(sevenDaysAgo);
+
+        while (sevenDaysAgo <= today) {
+            const currentDate = sevenDaysAgo.toISOString().split('T')[0];
+            console.log(currentDate)
+            myMap.set(currentDate, 0);
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() + 1); 
+        }
+    }
+
     async function fetchNewCodeData(){
         myMap.clear();
         arr.length = 0;
+        initializeMap();
         const result = await axios.post('http://localhost:8080/api/github/new_Work',{
             owner: owner,
             repo: repo
@@ -32,7 +48,6 @@ const NewWork = () => {
             }else{
                 myMap.set(ele.date,(ele.stats.additions-ele.stats.deletions));
             }
-            
         })
         arr = Array.from(myMap);
         setFetchedData(result.data);
@@ -64,9 +79,10 @@ const NewWork = () => {
                     data={{
                         labels: arr.map((ele) => ele[0]),
                         datasets: [{
-                          label: 'My First Dataset',
+                          label: 'Total Lines of New Code',
                           data: arr.map((ele) => ele[1]),
-                          borderColor: 'rgb(75, 192, 192)',
+                          borderColor: 'rgba(255, 205, 86)',
+                          backgroundColor: 'rgba(255, 255, 255)',
                           tension: 0.1
                         }]
                     }}
@@ -74,7 +90,7 @@ const NewWork = () => {
                         plugins: {
                             title: {
                               display: true,
-                              text: `Total Lines of Changes`,
+                              text: 'New lines of code added each day (starting from 7 days ago)',
                             },
                         }
                     }}
