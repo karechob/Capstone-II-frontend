@@ -21,6 +21,8 @@ const Impact = () =>{
     const [display,setDisplay] = useState(false);
 
     async function fetchData(){
+        myMap.clear();
+        arr.length = 0;
         let changeSum = 0, additionSum = 0, deletionSum = 0;
         const result = await axios.post('http://localhost:8080/api/github/impact',{
             owner: owner,
