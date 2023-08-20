@@ -73,13 +73,13 @@ const NewWork = () => {
     },[link, owner, repo])
 
     return(
-        <div>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        }}>
             {display?(
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-            }}>
+            <div>
             <div style={{ width: 600 }}>
                 <Line
                     data={{
