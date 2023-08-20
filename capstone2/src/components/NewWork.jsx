@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { Colors} from "chart.js";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 Chart.register(Colors);
 
+const myMap = new Map();
+let arr = [];
 const NewWork = () => {
     
     const location = useLocation();
@@ -18,16 +20,21 @@ const NewWork = () => {
     const [display,setDisplay] = useState(false);
 
     async function fetchNewCodeData(){
-        let changeSum = 0, additionSum = 0, deletionSum = 0;
+        myMap.clear();
+        arr.length = 0;
         const result = await axios.post('http://localhost:8080/api/github/new_Work',{
             owner: owner,
             repo: repo
         })
         result.data.forEach((ele)=>{
-            changeSum += ele.stats.total;
-            additionSum += ele.stats.additions;
-            deletionSum += ele.stats.deletions;
+            if(myMap.has(ele.date)){
+                myMap.set(ele.date,myMap.get(ele.date)+(ele.stats.additions-ele.stats.deletions))
+            }else{
+                myMap.set(ele.date,(ele.stats.additions-ele.stats.deletions));
+            }
+            
         })
+        arr = Array.from(myMap);
         setFetchedData(result.data);
         setDisplay(true);
     }
@@ -47,9 +54,35 @@ const NewWork = () => {
     return(
         <div>
             {display?(
-            <div>
-                <h1>data fetched</h1>
-            </div>):(<h1>Loading.....</h1>)}
+            <div style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+            }}>
+            <div style={{ width: 600 }}>
+                <Line
+                    data={{
+                        labels: arr.map((ele) => ele[0]),
+                        datasets: [{
+                          label: 'My First Dataset',
+                          data: arr.map((ele) => ele[1]),
+                          borderColor: 'rgb(75, 192, 192)',
+                          tension: 0.1
+                        }]
+                    }}
+                    options={{
+                        plugins: {
+                            title: {
+                              display: true,
+                              text: `Total Lines of Changes`,
+                            },
+                        }
+                    }}
+                    
+                />
+            </div>
+            </div>
+            ):(<h1>Loading.....</h1>)}
         </div>
     )
 }
