@@ -88,7 +88,7 @@ const Responsiveness = () => {
   return (
     <div>
       {display ? (
-        <div style={{ width: 400 }}>
+        <div style={{ width: 600 }}>
           <Bar
             options={options}
             data={{
