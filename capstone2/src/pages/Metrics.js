@@ -3,6 +3,7 @@ import ThoroughPR from "../components/ThoroughPR";
 import Impact from "../components/Impact";
 import UnreviewedPR from "../components/UnreviewedPR";
 import NewWork from "../components/NewWork";
+import Responsiveness from "../components/Responsiveness";
 
 function Metrics() {
   return (
@@ -11,7 +12,8 @@ function Metrics() {
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
-      <NewWork/>
+      <NewWork />
+      <Responsiveness />
     </div>
   );
 }
