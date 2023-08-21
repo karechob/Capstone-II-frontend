@@ -2,9 +2,10 @@ import React from "react";
 import ThoroughPR from "../components/ThoroughPR";
 import Impact from "../components/Impact";
 import UnreviewedPR from "../components/UnreviewedPR";
-import RepoSearch from "../components/AverageTimeToMerge";
+import AverageTimeToMerge from "../components/AverageTimeToMerge";
 import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
+
 
 function Metrics() {
   return (
@@ -13,7 +14,7 @@ function Metrics() {
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
-      <RepoSearch />
+      <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />
     </div>

@@ -6,7 +6,7 @@ import axios from "axios";
 
 ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
-const RepoSearch = () => {
+const AverageTimeToMerge = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const link = searchParams.get("link");
@@ -92,4 +92,4 @@ const RepoSearch = () => {
   );
 };
 
-export default RepoSearch;
+export default AverageTimeToMerge;
