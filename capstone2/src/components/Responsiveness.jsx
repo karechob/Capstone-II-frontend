@@ -88,41 +88,48 @@ const Responsiveness = () => {
   return (
     <div>
       {display ? (
-        <div style={{ width: 600 }}>
-          <Bar
-            options={options}
-            data={{
-              // x-axis
-              labels: [
-                "within half hour",
-                "within one hour",
-                "within three hour",
-                "withinin half a day",
-                "within one day",
-                "within one week",
-                "within one month",
-                "no response",
-              ],
-              datasets: [
-                {
-                  //
-                  label: "Total response",
-                  // y-axis
-                  data: [
-                    chartData.halfAnHour,
-                    chartData.anHour,
-                    chartData.threeHours,
-                    chartData.halfADay,
-                    chartData.aDay,
-                    chartData.aWeek,
-                    chartData.oneMonth,
-                    chartData.notResponding,
-                  ],
-                  backgroundColor: "rgba(255, 99, 132, 0.5)",
-                },
-              ],
-            }}
-          />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ width: 600 }}>
+            <Bar
+              options={options}
+              data={{
+                // x-axis
+                labels: [
+                  "within half hour",
+                  "within one hour",
+                  "within three hour",
+                  "withinin half a day",
+                  "within one day",
+                  "within one week",
+                  "within one month",
+                  "no response",
+                ],
+                datasets: [
+                  {
+                    label: "Total response",
+                    // y-axis
+                    data: [
+                      chartData.halfAnHour,
+                      chartData.anHour,
+                      chartData.threeHours,
+                      chartData.halfADay,
+                      chartData.aDay,
+                      chartData.aWeek,
+                      chartData.oneMonth,
+                      chartData.notResponding,
+                    ],
+                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                  },
+                ],
+              }}
+            />
+          </div>
         </div>
       ) : (
         <h1>Loading.....</h1>
