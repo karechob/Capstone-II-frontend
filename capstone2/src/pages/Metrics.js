@@ -5,6 +5,7 @@ import UnreviewedPR from "../components/UnreviewedPR";
 import AverageTimeToMerge from "../components/AverageTimeToMerge";
 import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
+import Rework from "../components/Rework";
 
 
 function Metrics() {
@@ -17,6 +18,7 @@ function Metrics() {
       <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />
+      <Rework />
     </div>
   );
 }
