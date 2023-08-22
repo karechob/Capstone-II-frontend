@@ -6,6 +6,7 @@ import AverageTimeToMerge from "../components/AverageTimeToMerge";
 import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
 import Rework from "../components/Rework";
+import LeadTime from "../components/LeadTime";
 
 
 function Metrics() {
@@ -19,6 +20,7 @@ function Metrics() {
       <NewWork />
       <Responsiveness />
       <Rework />
+      <LeadTime />
     </div>
   );
 }
