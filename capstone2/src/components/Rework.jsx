@@ -8,7 +8,6 @@ Chart.register(Colors);
 
 const myMap = new Map();
 let arr = [];
-let totalReworkCodeSum = 0;
 
 const Rework = () => {
   const location = useLocation();
@@ -19,7 +18,6 @@ const Rework = () => {
   const [repo, setRepo] = useState("");
   const [fetchData, setFetchedData] = useState([]);
   const [display, setDisplay] = useState(false);
-  const [reworkPercent, setReworkPercent] = useState(0);
 
   function initializeMap() {
     const today = new Date();
@@ -34,7 +32,6 @@ const Rework = () => {
   }
 
   async function fetchReworkData() {
-    let fileCount = 0;
     myMap.clear();
     arr.length = 0;
     initializeMap();
@@ -49,12 +46,8 @@ const Rework = () => {
       let reworkCodeSum = 0;
 
       if (ele) {
-        console.log("element", ele);
-        fileCount += ele.files.length;
-
         for (let file of ele.files) {
           reworkCodeSum += file.changes;
-          totalReworkCodeSum += file.changes;
         }
 
         if (myMap.has(ele.date)) {
@@ -65,7 +58,6 @@ const Rework = () => {
       }
     });
 
-    setReworkPercent(Math.floor(totalReworkCodeSum / fileCount));
     arr = Array.from(myMap);
     setFetchedData(result.data);
     setDisplay(true);
@@ -123,10 +115,6 @@ const Rework = () => {
         ) : (
           <h1>Loading.....</h1>
         )}
-      </div>
-      <div className="more-information">
-        <h1>More Information</h1>
-        <h2>Rework Percentage of Rework Code: {reworkPercent}%</h2>
       </div>
     </div>
   );
