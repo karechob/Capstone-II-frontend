@@ -5,6 +5,7 @@ import UnreviewedPR from "../components/UnreviewedPR";
 import AverageTimeToMerge from "../components/AverageTimeToMerge";
 import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
+// import MergeSuccessRate from "../components/MergeSuccessRate";
 
 
 function Metrics() {
@@ -14,6 +15,7 @@ function Metrics() {
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
+      {/* <MergeSuccessRate /> */}
       <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />
