@@ -38,7 +38,7 @@ const NewWork = () => {
         myMap.clear();
         arr.length = 0;
         initializeMap();
-        const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/github/new_Work`,{
+        const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/github/new_Work`,{
             owner: owner,
             repo: repo
         })

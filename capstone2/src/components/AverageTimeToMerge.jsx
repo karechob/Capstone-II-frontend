@@ -38,7 +38,7 @@ const AverageTimeToMerge = () => {
     async function fetchPullRequests(owner, repo) { 
       
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/github/avgTimeToMerge`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/github/avgTimeToMerge`, {
           params: {
             owner: owner,
             repo: repo,

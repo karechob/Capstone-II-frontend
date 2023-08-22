@@ -56,7 +56,7 @@ function ThoroughPR() {
       console.log(repo);
       
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/github/thoroughPRs`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/github/thoroughPRs`, {
           params: {
             owner: owner,
             repo: repo,
