@@ -19,9 +19,9 @@ const LeadTime = () => {
 
     const fetchLeadTimeDate = async () => {
         const result = await axios.get(
-            `${process.env.REACT_APP_BACKEND_URL}/api/github/leadTime?onwer=${owner}&repo=${repo}`
+            `${process.env.REACT_APP_BACKEND_URL}api/github/leadTime?owner=${owner}&repo=${repo}`
         );
-        console.log(result.data.commit_data);
+        // console.log(result.data.commit_data);
         setLeadTimeState(result.data);
     }
 
@@ -38,7 +38,14 @@ const LeadTime = () => {
     },[link, owner, repo])
 
     return (
-        <div align='center' id='LeadTimeForChanges' style={{ width : '50em'}}>
+        <div>
+            <center>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width :'70%'
+            }}>
             {leadTime === undefined ? (<h1>LOADING...</h1>) : 
                 (
                     <Line 
@@ -63,7 +70,7 @@ const LeadTime = () => {
                                 title: {
                                     display: true,
                                     text: 'Lead Time for Changes',
-                                    align : 'start',
+                                    align : 'center',
                                     font: {
                                         family: "Times",
                                         size: 30,
@@ -101,6 +108,8 @@ const LeadTime = () => {
                     />
                 )
             }
+            </div>
+            </center>
         </div>
     );
 }
