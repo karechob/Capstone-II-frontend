@@ -24,7 +24,7 @@ const Impact = () =>{
         myMap.clear();
         arr.length = 0;
         let changeSum = 0, additionSum = 0, deletionSum = 0;
-        const result = await axios.post('http://localhost:8080/api/github/impact',{
+        const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/github/impact`,{
             owner: owner,
             repo: repo
         })

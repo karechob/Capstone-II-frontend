@@ -5,7 +5,9 @@ import UnreviewedPR from "../components/UnreviewedPR";
 import AverageTimeToMerge from "../components/AverageTimeToMerge";
 import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
-// import MergeSuccessRate from "../components/MergeSuccessRate";
+import MergeSuccessRate from "../components/MergeSuccessRate";
+import Rework from "../components/Rework";
+import LeadTime from "../components/LeadTime";
 
 
 function Metrics() {
@@ -15,10 +17,12 @@ function Metrics() {
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
-      {/* <MergeSuccessRate /> */}
+      <MergeSuccessRate />
       <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />
+      <Rework />
+      <LeadTime />
     </div>
   );
 }
