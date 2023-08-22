@@ -56,7 +56,7 @@ function ThoroughPR() {
       console.log(repo);
       
       try {
-        const response = await axios.get(`http://localhost:8080/api/github/thoroughPRs`, {
+        const response = await axios.get(`https://localhost:8080/api/github/thoroughPRs`, {
           params: {
             owner: owner,
             repo: repo,
