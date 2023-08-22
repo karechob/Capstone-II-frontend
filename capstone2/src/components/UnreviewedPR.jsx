@@ -41,7 +41,7 @@ function UnreviewedPR() {
     async function fetchPullRequests() {
       if ((owner, repo)) {
         const response = await axios.get(
-          "http://localhost:8080/api/github/generatePull",
+          `${process.env.REACT_APP_BACKEND_URL}api/github/generatePull`,
           {
             params: {
               owner,
