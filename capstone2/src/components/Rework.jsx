@@ -39,7 +39,7 @@ const Rework = () => {
     arr.length = 0;
     initializeMap();
 
-    const result = await axios.post("http://localhost:8080/api/github/rework", {
+    const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/github/rework`, {
       owner: owner,
       repo: repo,
     });
