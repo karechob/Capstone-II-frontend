@@ -7,6 +7,8 @@ import NewWork from "../components/NewWork";
 import Responsiveness from "../components/Responsiveness";
 import Rework from "../components/Rework";
 import LeadTime from "../components/LeadTime";
+import DeploymentFrequency from "../components/DeploymentFrequency";
+
 
 
 function Metrics() {
@@ -21,6 +23,8 @@ function Metrics() {
       <Responsiveness />
       <Rework />
       <LeadTime />
+      <DeploymentFrequency/>
+
     </div>
   );
 }
