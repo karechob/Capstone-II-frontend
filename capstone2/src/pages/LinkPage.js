@@ -3,13 +3,27 @@ import { useNavigate } from "react-router-dom";
 
 function LinkPage() {
   const [link, setLink] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   function handleLink(event){
     setLink(event.target.value); 
+    setErrorMessage("");
   }
 
   function handleAnalyze(){
+    // Check if the input is empty 
+    if (!link.trim()) {
+      setErrorMessage("Please enter a repo link");
+      return;
+    }
+    //validate github repo structure
+    const matches = link.match(/^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/);
+    if (!matches) {
+      setErrorMessage("Invalid repo link");
+      return;
+    }
+
     navigate(`/metrics?link=${encodeURIComponent(link)}`);
   }
 
@@ -26,6 +40,8 @@ function LinkPage() {
       />
       <button onClick={handleAnalyze}>Analyze Metrics</button>
       
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
     </div>
   )
 }
