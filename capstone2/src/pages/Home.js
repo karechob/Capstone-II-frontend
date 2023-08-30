@@ -2,7 +2,7 @@ import React from "react";
 import LinkPage from "../pages/LinkPage";
 import video from "../assets/background_video.mp4";
 import videoWebm from "../assets/background_video.webm";
-import '../css/home.css';
+import '../css/Home.css';
 
 function Home() {
   return (
