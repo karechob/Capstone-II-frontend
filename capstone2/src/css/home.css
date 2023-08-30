@@ -1,5 +1,8 @@
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: aliceblue;
+    margin: 0;
 }
 .home {
     position: absolute;
@@ -75,4 +78,21 @@ body {
   #enter-link:focus,
   button:focus {
     outline: none;
+  }
+
+  .metrics-page {
+      background-image: url("../assets/background.gif");   
+  }
+
+  .metric-container {
+      border-radius: 20px;
+      background-color: aliceblue;
+      color: black;
+      margin-left: 50px;
+      margin-right: 50px;
+  }
+
+  .metrics-title-container {
+    display: flex; 
+    align-items: center;
   }

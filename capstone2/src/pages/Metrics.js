@@ -9,13 +9,24 @@ import MergeSuccessRate from "../components/MergeSuccessRate";
 import Rework from "../components/Rework";
 import LeadTime from "../components/LeadTime";
 import DeploymentFrequency from "../components/DeploymentFrequency";
-
+import { useNavigate } from "react-router-dom";
 
 
 function Metrics() {
+
+  const navigate = useNavigate();
+
+  function handleAnalyze() {
+    navigate(`/`);
+  }
+
   return (
-    <div>
-      <h1>Your Metrics</h1>
+    <div className="metrics-page">
+      <div className="metrics-title-container">
+        <h1>Your Metrics</h1>
+      <button onClick={handleAnalyze}>Analyze Metrics</button>
+      </div>
+      <div className="metric-container">
       <ThoroughPR></ThoroughPR>
       <Impact />
       <UnreviewedPR />
@@ -23,11 +34,11 @@ function Metrics() {
       <NewWork />
       <Responsiveness />
       <Rework />
-      <LeadTime /> 
+      <LeadTime />
       <MergeSuccessRate />
       <LeadTime />
-      <DeploymentFrequency/>
-
+      <DeploymentFrequency />
+      </div>
     </div>
   );
 }
