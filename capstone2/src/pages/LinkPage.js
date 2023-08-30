@@ -1,18 +1,19 @@
-import { React, useState } from 'react'
-import { useNavigate } from "react-router-dom"; 
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../css/Home.css";
 
 function LinkPage() {
   const [link, setLink] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  function handleLink(event){
-    setLink(event.target.value); 
+  function handleLink(event) {
+    setLink(event.target.value);
     setErrorMessage("");
   }
 
-  function handleAnalyze(){
-    // Check if the input is empty 
+  function handleAnalyze() {
+    // Check if the input is empty
     if (!link.trim()) {
       setErrorMessage("Please enter a repo link");
       return;
@@ -28,22 +29,19 @@ function LinkPage() {
   }
 
   return (
-    <div>
-      <h1>Enter Link to Your Repo!</h1>
-
+    <div className="search-bar">
       <input
-        id= "enter-link"
+        id="enter-link"
         type="text"
         value={link}
-        onChange={handleLink} 
-        placeholder="Enter repository link"
+        onChange={handleLink}
+        placeholder="Enter GitHub repository link"
       />
       <button onClick={handleAnalyze}>Analyze Metrics</button>
-      
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>
-  )
+  );
 }
 
 export default LinkPage;

@@ -1,11 +1,27 @@
 import React from "react";
 import LinkPage from "../pages/LinkPage";
+import video from "../assets/background_video.mp4";
+import videoWebm from "../assets/background_video.webm";
+import "../css/Home.css";
 
 function Home() {
   return (
-    <div>
-      <div>This is the home page</div>
-      <LinkPage />
+    <div className="home">
+      <video muted loop autoPlay>
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag. I suggest you upgrade your
+        browser.
+        <source src={videoWebm} type="video/webm" />
+        Your browser does not support the video tag. I suggest you upgrade your
+        browser.
+      </video>
+      <div className="overlay"></div>
+      <div className="project-name">
+        <h2>Project Name</h2>
+      </div>
+      <div className="searchBar">
+        <LinkPage />
+      </div>
     </div>
   );
 }
