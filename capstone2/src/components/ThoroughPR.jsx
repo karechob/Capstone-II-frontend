@@ -65,7 +65,7 @@ function ThoroughPR() {
       legend: {
         display: true,
         fontColor: "white",
-        position: "top",
+        position: "bottom",
         labels: {
           color: "#ffffff",
         },

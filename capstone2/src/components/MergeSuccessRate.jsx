@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Donut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
 
 function MergeSuccessRate() {
+    ChartJS.register(ArcElement, Tooltip, Legend);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const link = searchParams.get("link");

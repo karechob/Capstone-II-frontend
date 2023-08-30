@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import "../css/metrics.css";
 import {
   Colors,
   CategoryScale,
@@ -43,12 +44,30 @@ const Responsiveness = () => {
   const options = {
     responsive: true,
     plugins: {
+      layout: {
+        padding: 5,
+      },
+
       legend: {
         position: "top",
+        display: true,
+        fontColor: "white",
+        // position: "bottom",
+        labels: {
+          color: "#ffffff",
+        },
       },
       title: {
         display: true,
         text: "Responsiveness",
+        align: "center",
+        color: "white",
+        font: {
+          family: "Poppins",
+          size: 30,
+          style: "normal",
+          lineHeight: 1.6,
+        },
       },
     },
   };
@@ -86,7 +105,7 @@ const Responsiveness = () => {
   }, [link, owner, repo]);
 
   return (
-    <div>
+    <div className="avg-time-to-merge">
       {display ? (
         <div
           style={{

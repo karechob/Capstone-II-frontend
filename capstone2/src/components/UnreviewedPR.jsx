@@ -63,6 +63,34 @@ function UnreviewedPR() {
   const config = {
     type: "pie",
     data: data,
+    layout: {
+      padding: 5,
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Unreviewed PRs',
+        align : 'center',
+        color: "white",
+        font: {
+            family: "Poppins",
+            size: 30,
+            style: "normal",
+            lineHeight: 1.6,
+        }
+    },
+      Tooltip: {
+        enabled: true,
+      },
+      legend: {
+        display: true,
+        fontColor: "white",
+        position: "bottom",
+        labels: {
+          color: "#ffffff",
+        },
+      },
+    },
   };
 
   return (
@@ -70,8 +98,9 @@ function UnreviewedPR() {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          // flexDirection: "column",
+          // alignItems: "center",
+        
         }}
       >
         {success === 0 && failure === 0 ? (

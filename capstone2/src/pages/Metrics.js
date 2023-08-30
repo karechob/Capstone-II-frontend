@@ -28,17 +28,39 @@ function Metrics() {
       <button className="metrics-btn" onClick={handleAnalyze}>Analyze Metrics</button>
       </div>
       <div className="metrics-container">
-      <ThoroughPR></ThoroughPR>
-      <UnreviewedPR />
-      <Impact />
-      <AverageTimeToMerge />
-      <NewWork />
-      <Responsiveness />
-      <Rework />
-      <LeadTime />
-      <MergeSuccessRate />
-      <LeadTime />
-      <DeploymentFrequency />
+        <div className="small-pie-chart">
+        <ThoroughPR />
+        </div>
+        <div className="small-pie-chart">
+        <UnreviewedPR />  
+        </div>    
+        <div className="averageTimeToMerge">
+        <AverageTimeToMerge />
+        </div>
+        <div className="averageTimeToMerge">
+        <NewWork />
+        </div>
+        <div className="averageTimeToMerge">
+        <Responsiveness />
+        </div>
+        <div className="averageTimeToMerge">
+        <Rework />
+        </div>
+        <div className="">
+        <LeadTime />
+        </div>
+        <div className="">
+        <MergeSuccessRate />
+        </div>
+        <div className="">
+        <LeadTime />
+        </div>
+        <div className="">
+        <DeploymentFrequency /> 
+        </div>
+        <div className="">
+        <Impact />
+        </div>
       </div>
     </div>
   );

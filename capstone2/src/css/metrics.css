@@ -23,8 +23,28 @@
 .thorough-prs {
     font-family: 'Poppins', sans-serif;
 }
+.small-pie-chart {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    border: solid;
+    margin: 2%;
+    transition: all .5s ease;
+}
+.small-pie-chart:hover {
+    background-color: rgba(139, 205, 255, 0.593);
+    transition: all .5s ease;
+}
 .thorough-pr-metric-title {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 0px;
+}
+.avg-time-to-merge {
+    height: auto;
+    width: 600px;
+    border: solid;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 20px;
 }
