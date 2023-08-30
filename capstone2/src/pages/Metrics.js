@@ -8,6 +8,8 @@ import Responsiveness from "../components/Responsiveness";
 import MergeSuccessRate from "../components/MergeSuccessRate";
 import Rework from "../components/Rework";
 import LeadTime from "../components/LeadTime";
+import DeploymentFrequency from "../components/DeploymentFrequency";
+
 
 
 function Metrics() {
@@ -23,6 +25,9 @@ function Metrics() {
       <Rework />
       <LeadTime /> 
       <MergeSuccessRate />
+      <LeadTime />
+      <DeploymentFrequency/>
+
     </div>
   );
 }
