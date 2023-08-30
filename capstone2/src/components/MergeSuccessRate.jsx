@@ -20,7 +20,7 @@ function MergeSuccessRate() {
 
         async function getMergeSuccessRate(owner, repo) {
             try {
-                const response = await axios.get(`http://localhost:8080/api/github/mergeSuccessRate`, {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/github/mergeSuccessRate`, {
                     params: {
                       owner: owner,
                       repo: repo,
@@ -40,14 +40,18 @@ function MergeSuccessRate() {
 
   return ( 
       <div>
-          {loading && <div>Loading...</div>}
-          {mergeSuccessRate !== null && (
-        <div>
-            {mergeSuccessRate}
-        </div>
-      )}
+          {mergeSuccessRate}%
       </div>
   )
 }
 
 export default MergeSuccessRate
+
+{/* <div>
+{loading && <div>Loading...</div>}
+{mergeSuccessRate !== null && (
+<div>
+  {mergeSuccessRate}
+</div>
+)}
+</div> */}

@@ -15,14 +15,14 @@ function Metrics() {
     <div>
       <h1>Your Metrics</h1>
       <ThoroughPR></ThoroughPR>
-      <Impact />
+      {/* <Impact /> */}
       <UnreviewedPR />
-      <MergeSuccessRate />
       <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />
       <Rework />
-      <LeadTime />
+      <LeadTime /> 
+      <MergeSuccessRate />
     </div>
   );
 }
