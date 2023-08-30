@@ -42,9 +42,9 @@ const LeadTime = () => {
             <center>
             <div style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width :'70%'
+                // alignItems: 'center',
+                // justifyContent: 'center',
+                width :'50%'
             }}>
             {leadTime === undefined ? (<h1>LOADING...</h1>) : 
                 (
@@ -71,8 +71,9 @@ const LeadTime = () => {
                                     display: true,
                                     text: 'Lead Time for Changes',
                                     align : 'center',
+                                    color: 'white',
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 30,
                                         style: "normal",
                                         lineHeight: 1.6,
@@ -87,7 +88,7 @@ const LeadTime = () => {
                                     display: true,
                                     text: "Day",
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 20,
                                         style: "normal",
                                         lineHeight: 1.2,
@@ -97,7 +98,7 @@ const LeadTime = () => {
                                     display: true,
                                     text: "Day",
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 20,
                                         style: "normal",
                                         lineHeight: 1.2,

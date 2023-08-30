@@ -10,6 +10,7 @@ import Rework from "../components/Rework";
 import LeadTime from "../components/LeadTime";
 import DeploymentFrequency from "../components/DeploymentFrequency";
 import { useNavigate } from "react-router-dom";
+import '../css/metrics.css';
 
 
 function Metrics() {
@@ -24,12 +25,12 @@ function Metrics() {
     <div className="metrics-page">
       <div className="metrics-title-container">
         <h1>Your Metrics</h1>
-      <button onClick={handleAnalyze}>Analyze Metrics</button>
+      <button className="metrics-btn" onClick={handleAnalyze}>Analyze Metrics</button>
       </div>
-      <div className="metric-container">
+      <div className="metrics-container">
       <ThoroughPR></ThoroughPR>
-      <Impact />
       <UnreviewedPR />
+      <Impact />
       <AverageTimeToMerge />
       <NewWork />
       <Responsiveness />

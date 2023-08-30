@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
+import '../css/metrics.css';
 
 function ThoroughPR() {
   ChartJS.register(ArcElement, Tooltip, Legend);
@@ -42,6 +43,34 @@ function ThoroughPR() {
   const config = {
     type: "pie",
     data: data,
+    layout: {
+      padding: 5,
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Thorough PRs',
+        align : 'center',
+        color: "white",
+        font: {
+            family: "Poppins",
+            size: 30,
+            style: "normal",
+            lineHeight: 1.6,
+        }
+    },
+      Tooltip: {
+        enabled: true,
+      },
+      legend: {
+        display: true,
+        fontColor: "white",
+        position: "top",
+        labels: {
+          color: "#ffffff",
+        },
+      },
+    },
   };
 
   useEffect(() => {
@@ -79,7 +108,7 @@ function ThoroughPR() {
   }, [link, owner, repo]);
 
   return (
-    <div>
+    <div className="thorough-prs">
       
       {/* <h1>Thorough PRs</h1>
       <h4>
@@ -98,7 +127,8 @@ function ThoroughPR() {
         <p>Percentage of Thorough PRs: Calculating... One Moment...</p>
       ) : (
         // <p>Percentage of Thorough PRs: {percentage}% </p>
-        <div style={{ width: "400px", height: "400px" }}>
+        <div style={{ width: "300px", height: "300px" }}>
+          {/* <h1 className="thorough-pr-metric-title">Thorough PRs</h1> */}
           <Pie data={data} options={config} />
         </div>
       )}
