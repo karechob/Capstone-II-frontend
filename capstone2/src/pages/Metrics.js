@@ -17,7 +17,7 @@ function Metrics() {
     <div>
       <h1>Your Metrics</h1>
       <ThoroughPR></ThoroughPR>
-      {/* <Impact /> */}
+      <Impact />
       <UnreviewedPR />
       <AverageTimeToMerge />
       <NewWork />
