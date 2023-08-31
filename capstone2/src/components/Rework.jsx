@@ -4,6 +4,7 @@ import Chart from "chart.js/auto";
 import { Colors } from "chart.js";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import "../css/metrics.css";
 Chart.register(Colors);
 
 const myMap = new Map();
@@ -36,10 +37,13 @@ const Rework = () => {
     arr.length = 0;
     initializeMap();
 
-    const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/github/rework`, {
-      owner: owner,
-      repo: repo,
-    });
+    const result = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}api/github/rework`,
+      {
+        owner: owner,
+        repo: repo,
+      }
+    );
 
     //filter the dataset by date
     result.data.forEach((ele) => {
@@ -76,7 +80,7 @@ const Rework = () => {
   }, [link, owner, repo]);
 
   return (
-    <div className="rework-container">
+    <div className="avg-time-to-merge">
       <div
         className="pie-chart"
         style={{
@@ -104,8 +108,24 @@ const Rework = () => {
                 options={{
                   plugins: {
                     title: {
+                      text: ["Reworked Code", "From 3 Weeks Ago and Onwards"],
                       display: true,
-                      text: "Reworked Code From 3 Weeks Ago and Onwards",
+                      align: "center",
+                      color: "white",
+                      font: {
+                        family: "Poppins",
+                        size: 30,
+                        style: "normal",
+                        lineHeight: 1.6,
+                      },
+                    },
+                    legend: {
+                      display: true,
+                      fontColor: "white",
+                      position: "bottom",
+                      labels: {
+                        color: "#ffffff",
+                      },
                     },
                   },
                 }}

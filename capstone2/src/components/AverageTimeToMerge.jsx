@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend, } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
+import '../css/metrics.css';
 
 ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
@@ -61,7 +62,7 @@ const AverageTimeToMerge = () => {
   }, [link, owner, repo]);
 
   return (
-    <div>
+    <div className="avg-time-to-merge">
       {loading && <div>Loading...</div>}
       {avgTimeToMerge !== null && (
         <div>
@@ -69,6 +70,24 @@ const AverageTimeToMerge = () => {
             data={getChartData(avgTimeToMerge)}
             options={{
               responsive: true,
+              color: 'white',
+              layout: {
+                padding: 5,
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Average Merge Time',
+                  align : 'center',
+                  color: "white",
+                  font: {
+                      family: "Poppins",
+                      size: 30,
+                      style: "normal",
+                      lineHeight: 1.6,
+                  }
+              },
+              },
               legend: {
                 display: false,
               },

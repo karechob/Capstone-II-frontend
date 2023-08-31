@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useLocation } from "react-router-dom";
+import '../css/metrics.css';
 
 Chart.register(CategoryScale);
 
@@ -38,13 +39,13 @@ const LeadTime = () => {
     },[link, owner, repo])
 
     return (
-        <div>
+        <div className="avg-time-to-merge">
             <center>
             <div style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width :'70%'
+                // alignItems: 'center',
+                // justifyContent: 'center',
+                width :'100%'
             }}>
             {leadTime === undefined ? (<h1>LOADING...</h1>) : 
                 (
@@ -71,8 +72,9 @@ const LeadTime = () => {
                                     display: true,
                                     text: 'Lead Time for Changes',
                                     align : 'center',
+                                    color: 'white',
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 30,
                                         style: "normal",
                                         lineHeight: 1.6,
@@ -87,7 +89,7 @@ const LeadTime = () => {
                                     display: true,
                                     text: "Day",
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 20,
                                         style: "normal",
                                         lineHeight: 1.2,
@@ -97,7 +99,7 @@ const LeadTime = () => {
                                     display: true,
                                     text: "Day",
                                     font: {
-                                        family: "Times",
+                                        family: "Poppins",
                                         size: 20,
                                         style: "normal",
                                         lineHeight: 1.2,

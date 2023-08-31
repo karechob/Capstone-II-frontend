@@ -115,7 +115,7 @@ function DeploymentFrequency() {
 
 
   return (
-    <div>
+    <div className="avg-time-to-merge">
       <h1>Deployment Frequency</h1>
       <div>
         <p>Total Deployments: {totalDeployments}</p>
