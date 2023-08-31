@@ -46,19 +46,16 @@ function Metrics() {
         <div className="averageTimeToMerge">
         <Rework />
         </div>
-        <div className="">
+        <div className="averageTimeToMerge">
         <LeadTime />
         </div>
-        <div className="">
+        <div className="small-pie-chart">
         <MergeSuccessRate />
         </div>
-        <div className="">
-        <LeadTime />
-        </div>
-        <div className="">
+        <div className="averageTimeToMerge">
         <DeploymentFrequency /> 
         </div>
-        <div className="">
+        <div>
         <Impact />
         </div>
       </div>

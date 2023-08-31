@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
+import '../css/metrics.css';
 
 function UnreviewedPR() {
   ChartJS.register(ArcElement, Tooltip, Legend);

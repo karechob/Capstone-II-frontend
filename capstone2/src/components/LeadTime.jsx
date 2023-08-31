@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useLocation } from "react-router-dom";
+import '../css/metrics.css';
 
 Chart.register(CategoryScale);
 
@@ -38,13 +39,13 @@ const LeadTime = () => {
     },[link, owner, repo])
 
     return (
-        <div>
+        <div className="avg-time-to-merge">
             <center>
             <div style={{
                 display: 'flex',
                 // alignItems: 'center',
                 // justifyContent: 'center',
-                width :'50%'
+                width :'100%'
             }}>
             {leadTime === undefined ? (<h1>LOADING...</h1>) : 
                 (

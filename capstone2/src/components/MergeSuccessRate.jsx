@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Donut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
+import '../css/metrics.css';
 
 function MergeSuccessRate() {
     ChartJS.register(ArcElement, Tooltip, Legend);
@@ -12,7 +13,7 @@ function MergeSuccessRate() {
     const [owner, setOwner] = useState("");
     const [repo, setRepo] = useState("");
     const [mergeSuccessRate, setMergeSuccessRate] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [remainder, setRemainder] = useState(0);
 
     useEffect(() => {
         function deconstructLink() {
@@ -30,6 +31,8 @@ function MergeSuccessRate() {
                     },
                   });
                 setMergeSuccessRate(response.data.mergeSuccessRate);
+                setRemainder(100.00 - mergeSuccessRate)
+                
             } catch (error) {
                 console.log(error);
             }
@@ -41,20 +44,76 @@ function MergeSuccessRate() {
     }
     }, [link, owner, repo]);
 
+
+    const data = {
+      labels: ["Success Rate", "Remainder"],
+      datasets: [
+        {
+          label: "Percentage",
+          data: [mergeSuccessRate, remainder],
+          backgroundColor: [
+            'rgb(80, 200, 120)', //green
+            'rgb(255,255,255)',
+          ],
+          hoverBackgroundColor: [
+            'rgb(89, 224, 134)',
+            'rgb(240,255,240)',
+          ],
+          borderColor: [
+            'rgb(255,250,240)'
+          ],
+          borderWidth: [1],
+          hoverOffset: 4,
+        },
+      ],
+    };
+  
+    const config = {
+      type: "doughnut",
+      data: data,
+      layout: {
+        padding: 5,
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Merge Success Rate',
+          align : 'center',
+          color: "white",
+          font: {
+              family: "Poppins",
+              size: 30,
+              style: "normal",
+              lineHeight: 1.6,
+          }
+      },
+        Tooltip: {
+          enabled: true,
+        },
+        legend: {
+          display: true,
+          fontColor: "white",
+          position: "bottom",
+          labels: {
+            color: "#ffffff",
+          },
+        },
+      },
+    };
+
   return ( 
-      <div>
-          {mergeSuccessRate}%
+    <div className="thorough-prs">
+
+    {mergeSuccessRate === "" ? (
+      <p>Percentage of Merge Success Rate: Calculating... One Moment...</p>
+    ) : (
+      <div style={{ width: "300px", height: "300px" }}>
+        <Doughnut data={data} options={config} />
       </div>
+    )}
+
+  </div>
   )
 }
 
 export default MergeSuccessRate
-
-{/* <div>
-{loading && <div>Loading...</div>}
-{mergeSuccessRate !== null && (
-<div>
-  {mergeSuccessRate}
-</div>
-)}
-</div> */}
