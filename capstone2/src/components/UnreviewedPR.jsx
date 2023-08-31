@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
+import '../css/metrics.css';
 
 function UnreviewedPR() {
   ChartJS.register(ArcElement, Tooltip, Legend);
@@ -63,6 +64,34 @@ function UnreviewedPR() {
   const config = {
     type: "pie",
     data: data,
+    layout: {
+      padding: 5,
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Unreviewed PRs',
+        align : 'center',
+        color: "white",
+        font: {
+            family: "Poppins",
+            size: 30,
+            style: "normal",
+            lineHeight: 1.6,
+        }
+    },
+      Tooltip: {
+        enabled: true,
+      },
+      legend: {
+        display: true,
+        fontColor: "white",
+        position: "bottom",
+        labels: {
+          color: "#ffffff",
+        },
+      },
+    },
   };
 
   return (
@@ -70,14 +99,15 @@ function UnreviewedPR() {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          // flexDirection: "column",
+          // alignItems: "center",
+        
         }}
       >
         {success === 0 && failure === 0 ? (
           <h1>Loading...</h1>
         ) : (
-          <div style={{ width: "400px", height: "400px" }}>
+          <div style={{ width: "300px", height: "300px" }}>
             <Pie data={data} options={config} />
           </div>
         )}

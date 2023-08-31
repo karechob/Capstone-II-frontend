@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Line } from "react-chartjs-2";
+import '../css/metrics.css';
 
 function DeploymentFrequency() {
   const [owner, setOwner] = useState("");
@@ -63,7 +64,7 @@ function DeploymentFrequency() {
   
 
   return (
-    <div>
+    <div className="avg-time-to-merge">
       <h1>Deployment Frequency</h1>
       
      

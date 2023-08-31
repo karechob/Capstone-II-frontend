@@ -1,0 +1,54 @@
+.metrics-page {
+    background-image: url("../assets/background.gif");
+}
+
+.metrics-container {
+    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    margin-left: 70px;
+    margin-right: 70px;
+    border-style: solid;
+    border-color: aliceblue;
+}
+
+.metrics-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.metrics-btn {
+    margin-left: 20px;
+}
+.thorough-prs {
+    font-family: 'Poppins', sans-serif;
+}
+.small-pie-chart {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    border: solid;
+    margin: 2%;
+    transition: all .5s ease;
+}
+.small-pie-chart:hover {
+    background-color: rgba(139, 205, 255, 0.593);
+    transition: all .5s ease;
+}
+.thorough-pr-metric-title {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+.avg-time-to-merge {
+    height: auto;
+    width: 600px;
+    border: solid;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 20px;
+}
+.lead-time-container {
+    border: solid;
+    border-radius: 20px;
+}
