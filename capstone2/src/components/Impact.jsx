@@ -69,12 +69,12 @@ const Impact = () => {
   }, [link, owner, repo]);
 
   return (
-    <div>
+    <div className="impact-charts-container">
       {display ? (
         <>
           <div
-            style={{ width: "280px", height: "280px" }}
-            className="small-pie-chart"
+            style={{ width: "320px", height: "320px" }}
+            className="impact-chart"
           >
             <Doughnut
               data={{
@@ -117,7 +117,7 @@ const Impact = () => {
               }}
             />
           </div>
-          <div style={{ width: 400 }} className="small-pie-chart">
+          <div style={{ width: 500 }} className="impact-chart">
             <Doughnut
               data={{
                 labels: arr.map((ele) => ele[0]),

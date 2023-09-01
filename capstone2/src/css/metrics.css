@@ -8,11 +8,11 @@
   color: aliceblue;
   margin-left: 70px;
   margin-right: 70px;
-  /* margin: 10px; */
   padding: 20px;
   border-style: solid;
   border-color: aliceblue;
 }
+
 .chart-pair-container {
   display: flex;
   align-items: center;
@@ -20,7 +20,6 @@
   flex-wrap: wrap;
   width: 100%;
   margin: 10px 0;
-  /* Add spacing around the chart pair */
 }
 
 .metrics-title-container {
@@ -35,14 +34,12 @@
   font-family: "Poppins", sans-serif;
 }
 .small-pie-chart {
-  width: 280px;
+  width: 320px;
   height: auto;
   border-radius: 20px;
   border: solid;
-  /* padding: 1%; */
-  /* margin: 1%; */
+  margin: 1%;
   padding: 10px;
-  /* margin: 1%; */
   transition: all 0.5s ease;
 }
 .small-pie-chart:hover {
@@ -59,8 +56,6 @@
   height: auto;
   width: 600px;
   border: solid;
-  /* margin: 2%; */
-  /* padding: 2%; */
   padding: 20px;
   border-radius: 20px;
 }
@@ -68,4 +63,22 @@
 .lead-time-container {
   border: solid;
   border-radius: 20px;
+}
+
+.impact-charts-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.impact-chart {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  border: solid;
+  padding: 20px;
+  transition: all 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
 }

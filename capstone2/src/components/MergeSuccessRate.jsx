@@ -102,7 +102,7 @@ function MergeSuccessRate() {
       {mergeSuccessRate === "" ? (
         <p>Percentage of Merge Success Rate: Calculating... One Moment...</p>
       ) : (
-        <div style={{ width: "280px", height: "280px" }}>
+        <div style={{ width: "320px", height: "320px" }}>
           <Doughnut data={data} options={config} />
         </div>
       )}

@@ -106,7 +106,7 @@ function UnreviewedPR() {
         {success === 0 && failure === 0 ? (
           <h1>Loading...</h1>
         ) : (
-          <div style={{ width: "280px", height: "280px" }}>
+          <div style={{ width: "320px", height: "320px" }}>
             <Pie data={data} options={config} />
           </div>
         )}

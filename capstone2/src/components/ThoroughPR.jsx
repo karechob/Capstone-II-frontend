@@ -123,7 +123,7 @@ function ThoroughPR() {
         <p>Percentage of Thorough PRs: Calculating... One Moment...</p>
       ) : (
         // <p>Percentage of Thorough PRs: {percentage}% </p>
-        <div style={{ width: "280px", height: "280px" }}>
+        <div style={{ width: "320px", height: "320px" }}>
           {/* <h1 className="thorough-pr-metric-title">Thorough PRs</h1> */}
           <Pie data={data} options={config} />
         </div>

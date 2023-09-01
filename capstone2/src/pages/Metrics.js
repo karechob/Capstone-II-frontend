@@ -54,9 +54,7 @@ function Metrics() {
           <div className="small-pie-chart">
             <MergeSuccessRate />
           </div>
-          <div>
-            <Impact />
-          </div>
+          <Impact />
         </div>
         <div className="chart-pair-container">
           <div className="averageTimeToMerge">
