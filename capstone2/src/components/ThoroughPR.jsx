@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
-import '../css/metrics.css';
+import "../css/metrics.css";
 
 function ThoroughPR() {
   ChartJS.register(ArcElement, Tooltip, Legend);
@@ -24,16 +24,11 @@ function ThoroughPR() {
         label: "Percent",
         data: [percentage, notThorough],
         backgroundColor: [
-          'rgb(80, 200, 120)', //green
-          'rgb(222, 49, 99)', //red
+          "rgb(80, 200, 120)", //green
+          "rgb(222, 49, 99)", //red
         ],
-        hoverBackgroundColor: [
-          'rgb(89, 224, 134)',
-          'rgb(247, 54, 109)'
-        ],
-        borderColor: [
-          'rgb(255,250,240)'
-        ],
+        hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
+        borderColor: ["rgb(255,250,240)"],
         borderWidth: [1],
         hoverOffset: 4,
       },
@@ -49,16 +44,16 @@ function ThoroughPR() {
     plugins: {
       title: {
         display: true,
-        text: 'Thorough PRs',
-        align : 'center',
+        text: "Thorough PRs",
+        align: "center",
         color: "white",
         font: {
-            family: "Poppins",
-            size: 30,
-            style: "normal",
-            lineHeight: 1.6,
-        }
-    },
+          family: "Poppins",
+          size: 30,
+          style: "normal",
+          lineHeight: 1.6,
+        },
+      },
       Tooltip: {
         enabled: true,
       },
@@ -80,22 +75,24 @@ function ThoroughPR() {
       setRepo(tokens[4]);
     }
 
-    async function fetchPullRequests(owner, repo) { 
-      console.log(owner)
+    async function fetchPullRequests(owner, repo) {
+      console.log(owner);
       console.log(repo);
-      
+
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/github/thoroughPRs`, {
-          params: {
-            owner: owner,
-            repo: repo,
-          },
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}api/github/thoroughPRs`,
+          {
+            params: {
+              owner: owner,
+              repo: repo,
+            },
+          }
+        );
 
         const data = response.data;
-        setPercentage(data.percentage)
-        setNotThorough(data.notThorough)
-
+        setPercentage(data.percentage);
+        setNotThorough(data.notThorough);
       } catch (error) {
         console.log("error in fetching pull requests " + error);
       }
@@ -109,7 +106,6 @@ function ThoroughPR() {
 
   return (
     <div className="thorough-prs">
-      
       {/* <h1>Thorough PRs</h1>
       <h4>
         Thoroughly reviewed PRS is the percentage of merged pull requests with
@@ -127,14 +123,11 @@ function ThoroughPR() {
         <p>Percentage of Thorough PRs: Calculating... One Moment...</p>
       ) : (
         // <p>Percentage of Thorough PRs: {percentage}% </p>
-        <div style={{ width: "300px", height: "300px" }}>
+        <div style={{ width: "320px", height: "320px" }}>
           {/* <h1 className="thorough-pr-metric-title">Thorough PRs</h1> */}
           <Pie data={data} options={config} />
         </div>
       )}
-
-      
-
     </div>
   );
 }

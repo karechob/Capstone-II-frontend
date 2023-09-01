@@ -4,6 +4,7 @@ import Chart from "chart.js/auto";
 import { Colors } from "chart.js";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import "../css/metrics.css";
 Chart.register(Colors);
 const myMap = new Map();
 let arr = [];
@@ -68,16 +69,13 @@ const Impact = () => {
   }, [link, owner, repo]);
 
   return (
-    <div>
+    <div className="impact-charts-container">
       {display ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ width: 700 }}>
+        <>
+          <div
+            style={{ width: "320px", height: "320px" }}
+            className="impact-chart"
+          >
             <Doughnut
               data={{
                 labels: ["Additons", "Deletions"],
@@ -94,7 +92,7 @@ const Impact = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: [`Total ${totalChanges}`, "Lines of Changes"],
+                    text: `${totalChanges} Lines changed`,
                     align: "center",
                     color: "white",
                     font: {
@@ -119,7 +117,7 @@ const Impact = () => {
               }}
             />
           </div>
-          <div style={{ width: 700 }}>
+          <div style={{ width: 500 }} className="impact-chart">
             <Doughnut
               data={{
                 labels: arr.map((ele) => ele[0]),
@@ -165,7 +163,7 @@ const Impact = () => {
               }}
             />
           </div>
-        </div>
+        </>
       ) : (
         <h1>Loading.....</h1>
       )}
