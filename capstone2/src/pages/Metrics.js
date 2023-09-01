@@ -22,9 +22,9 @@ function Metrics() {
   return (
     <div className="metrics-page">
       <div className="metrics-title-container">
-        <h1>Your Metrics</h1>
+        <h1>Metrics</h1>
         <button className="metrics-btn" onClick={handleAnalyze}>
-          Analyze Metrics
+          Home
         </button>
       </div>
       <div className="metrics-container">

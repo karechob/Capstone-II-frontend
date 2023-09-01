@@ -34,7 +34,7 @@ function MergeSuccessRate() {
           }
         );
         setMergeSuccessRate(response.data.mergeSuccessRate);
-        setRemainder(100.0 - mergeSuccessRate);
+        setRemainder(100.00 - mergeSuccessRate);
       } catch (error) {
         console.log(error);
       }
