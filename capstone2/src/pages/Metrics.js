@@ -10,11 +10,9 @@ import Rework from "../components/Rework";
 import LeadTime from "../components/LeadTime";
 import DeploymentFrequency from "../components/DeploymentFrequency";
 import { useNavigate } from "react-router-dom";
-import '../css/metrics.css';
-
+import "../css/metrics.css";
 
 function Metrics() {
-
   const navigate = useNavigate();
 
   function handleAnalyze() {
@@ -25,38 +23,48 @@ function Metrics() {
     <div className="metrics-page">
       <div className="metrics-title-container">
         <h1>Your Metrics</h1>
-      <button className="metrics-btn" onClick={handleAnalyze}>Analyze Metrics</button>
+        <button className="metrics-btn" onClick={handleAnalyze}>
+          Analyze Metrics
+        </button>
       </div>
       <div className="metrics-container">
-        <div className="small-pie-chart">
-        <ThoroughPR />
+        <div className="chart-pair-container">
+          <div className="averageTimeToMerge">
+            <LeadTime />
+          </div>
+          <div className="averageTimeToMerge">
+            <Rework />
+          </div>
         </div>
-        <div className="small-pie-chart">
-        <UnreviewedPR />  
-        </div>    
-        <div className="averageTimeToMerge">
-        <AverageTimeToMerge />
+        <div className="chart-pair-container">
+          <div className="averageTimeToMerge">
+            <DeploymentFrequency />
+          </div>
+          <div className="averageTimeToMerge">
+            <NewWork />
+          </div>
         </div>
-        <div className="averageTimeToMerge">
-        <NewWork />
+        <div className="chart-pair-container">
+          <div className="small-pie-chart">
+            <ThoroughPR />
+          </div>
+          <div className="small-pie-chart">
+            <UnreviewedPR />
+          </div>
+          <div className="small-pie-chart">
+            <MergeSuccessRate />
+          </div>
+          <div>
+            <Impact />
+          </div>
         </div>
-        <div className="averageTimeToMerge">
-        <Responsiveness />
-        </div>
-        <div className="averageTimeToMerge">
-        <Rework />
-        </div>
-        <div className="averageTimeToMerge">
-        <LeadTime />
-        </div>
-        <div className="small-pie-chart">
-        <MergeSuccessRate />
-        </div>
-        <div className="averageTimeToMerge">
-        <DeploymentFrequency /> 
-        </div>
-        <div>
-        <Impact />
+        <div className="chart-pair-container">
+          <div className="averageTimeToMerge">
+            <Responsiveness />
+          </div>
+          <div className="averageTimeToMerge">
+            <AverageTimeToMerge />
+          </div>
         </div>
       </div>
     </div>
