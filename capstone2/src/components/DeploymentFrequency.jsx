@@ -117,6 +117,15 @@ function DeploymentFrequency() {
         },
       },
     },
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          color: "white",
+        },
+      },
+    },
   };
 
   const chartOptions = {
