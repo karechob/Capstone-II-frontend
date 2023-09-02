@@ -130,14 +130,14 @@ const Responsiveness = () => {
               data={{
                 // x-axis
                 labels: [
-                  "within half hour",
-                  "within one hour",
-                  "within three hour",
-                  "withinin half a day",
-                  "within one day",
-                  "within one week",
-                  "within one month",
-                  "no response",
+                  "Within half an hour",
+                  "Within one hour",
+                  "Within three hours",
+                  "Within half a day",
+                  "Within one day",
+                  "Within one week",
+                  "Within one month",
+                  "No response",
                 ],
                 datasets: [
                   {
