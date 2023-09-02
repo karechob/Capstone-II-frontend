@@ -47,12 +47,10 @@ const Responsiveness = () => {
       layout: {
         padding: 5,
       },
-
       legend: {
-        position: "top",
         display: true,
         fontColor: "white",
-        // position: "bottom",
+        position: "bottom",
         labels: {
           color: "#ffffff",
         },
