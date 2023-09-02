@@ -81,9 +81,11 @@ const AverageTimeToMerge = () => {
             data={getChartData(avgTimeToMerge)}
             options={{
               responsive: true,
-              color: "white",
               layout: {
                 padding: 5,
+                legend: {
+                  position: "bottom", // Move the legend to the bottom
+                },
               },
               plugins: {
                 title: {
@@ -98,9 +100,13 @@ const AverageTimeToMerge = () => {
                     lineHeight: 1.6,
                   },
                 },
-              },
-              legend: {
-                display: false,
+                legend: {
+                  display: true,
+                  position: "bottom", // Move the legend to the bottom
+                  labels: {
+                    color: "white",
+                  },
+                },
               },
               scales: {
                 x: {
@@ -121,9 +127,9 @@ const AverageTimeToMerge = () => {
               },
             }}
           />
-          <div className="average-time">
+          {/* <div className="average-time">
             Average Time to Merge: {avgTimeToMerge.toFixed(2)} hours
-          </div>
+          </div> */}
         </div>
       )}
     </div>
