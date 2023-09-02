@@ -132,6 +132,18 @@ const NewWork = () => {
                     },
                   },
                 },
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "white",
+                    },
+                  },
+                  y: {
+                    ticks: {
+                      color: "white",
+                    },
+                  },
+                },
               }}
             />
           </div>
