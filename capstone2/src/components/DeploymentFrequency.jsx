@@ -25,7 +25,7 @@ function DeploymentFrequency() {
       console.log("fetching deployments");
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}api/github/deploymentFrequency?owner=${owner}&repo=${repo}`,
+          `${process.env.REACT_APP_BACKEND_URL}api/github/deploymentFrequency?owner=${owner}&repo=${repo}`
         );
 
         const data = response.data;
@@ -34,7 +34,9 @@ function DeploymentFrequency() {
         setLastDeploymentTime(data.lastDeploymentTime);
         setMonthlyDeployments(data.deploymentsByMonth);
 
-        const formattedLastDeploymentTime = new Date(lastDeploymentTime).toLocaleString();
+        const formattedLastDeploymentTime = new Date(
+          lastDeploymentTime
+        ).toLocaleString();
 
         console.log("deployments", formattedLastDeploymentTime);
         console.log("whats here", data);
@@ -49,9 +51,24 @@ function DeploymentFrequency() {
     }
   }, [link, owner, repo]);
 
-  //Line chart displaying the number of deployments per month 
-  const xAxisLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const monthlyDeploymentCounts = xAxisLabels.map(month => monthlyDeployments[month] ? monthlyDeployments[month].count : 0);
+  //Line chart displaying the number of deployments per month
+  const xAxisLabels = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const monthlyDeploymentCounts = xAxisLabels.map((month) =>
+    monthlyDeployments[month] ? monthlyDeployments[month].count : 0
+  );
   const chartData = {
     labels: xAxisLabels,
     datasets: [
@@ -64,9 +81,16 @@ function DeploymentFrequency() {
       },
     ],
   };
-  
-//one bar graph displaying the deployment frequency per month
-  const monthlyDeploymentFrequencies = xAxisLabels.map(month => monthlyDeployments[month] ? yourFrequency(monthlyDeployments[month].count, monthlyDeployments[month].weeks.length) : 0);
+
+  //one bar graph displaying the deployment frequency per month
+  const monthlyDeploymentFrequencies = xAxisLabels.map((month) =>
+    monthlyDeployments[month]
+      ? yourFrequency(
+          monthlyDeployments[month].count,
+          monthlyDeployments[month].weeks.length
+        )
+      : 0
+  );
   const barChartData = {
     labels: xAxisLabels,
     datasets: [
@@ -74,13 +98,23 @@ function DeploymentFrequency() {
         label: "Deployment Frequency",
         data: monthlyDeploymentFrequencies,
         backgroundColor: "rgba(75, 192, 192, 0.6)",
+        borderColor: "rgba(75, 192, 192, 1)", // Border color
+        borderWidth: 1, // Border width
       },
     ],
   };
   const barChartOptions = {
     scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
       y: {
         beginAtZero: true,
+        ticks: {
+          color: "white",
+        },
       },
     },
   };
@@ -95,24 +129,21 @@ function DeploymentFrequency() {
     },
   };
 
-
   const weekNumbers = [1, 2, 3, 4];
 
   // Extract deployment counts for each week
-  const weeklyDeploymentCounts = xAxisLabels.map(month => {
-    return weekNumbers.map(weekNumber => {
-      const weekData = monthlyDeployments[month]?.weeks.find(week => week.weekNumber === weekNumber);
+  const weeklyDeploymentCounts = xAxisLabels.map((month) => {
+    return weekNumbers.map((weekNumber) => {
+      const weekData = monthlyDeployments[month]?.weeks.find(
+        (week) => week.weekNumber === weekNumber
+      );
       return weekData ? weekData.count : 0;
     });
   });
 
-
-  
   function yourFrequency(count) {
-    
     return count / 4; // Default value if weekNumber is not 1-4
   }
-
 
   return (
     <div className="avg-time-to-merge">
@@ -143,8 +174,6 @@ function DeploymentFrequency() {
       </div>
     </div>
   );
-
-
 }
 
 export default DeploymentFrequency;
