@@ -124,7 +124,35 @@ const Rework = () => {
                       fontColor: "white",
                       position: "bottom",
                       labels: {
-                        color: "#ffffff",
+                        color: "white", // Set the legend label color to white
+                      },
+                    },
+                  },
+                  scales: {
+                    x: {
+                      display: true,
+                      text: "Day",
+                      font: {
+                        family: "Poppins",
+                        size: 20,
+                        style: "normal",
+                        lineHeight: 1.2,
+                      },
+                      ticks: {
+                        color: "white", 
+                      },
+                    },
+                    y: {
+                      display: true,
+                      text: "Value",
+                      font: {
+                        family: "Poppins",
+                        size: 20,
+                        style: "normal",
+                        lineHeight: 1.2,
+                      },
+                      ticks: {
+                        color: "white", 
                       },
                     },
                   },
