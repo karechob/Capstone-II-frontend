@@ -70,6 +70,18 @@ const Responsiveness = () => {
         },
       },
     },
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
   };
 
   async function fetchData() {
