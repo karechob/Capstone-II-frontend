@@ -120,7 +120,7 @@ function ThoroughPR() {
       <p>Repo: {repo} </p> */}
 
       {percentage === "" ? (
-        <p>Percentage of Thorough PRs: Calculating... One Moment...</p>
+        <h1>Loading...</h1>
       ) : (
         // <p>Percentage of Thorough PRs: {percentage}% </p>
         <div style={{ width: "320px", height: "320px" }}>

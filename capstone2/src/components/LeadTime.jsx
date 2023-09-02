@@ -49,7 +49,7 @@ const LeadTime = () => {
           }}
         >
           {leadTime === undefined ? (
-            <h1>LOADING...</h1>
+            <h1>Loading...</h1>
           ) : (
             <Line
               data={{

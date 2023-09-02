@@ -101,7 +101,7 @@ function MergeSuccessRate() {
   return (
     <div className="thorough-prs">
       {mergeSuccessRate === "" ? (
-        <p>Percentage of Merge Success Rate: Calculating... One Moment...</p>
+        <h1>Loading...</h1>
       ) : (
         <div style={{ width: "320px", height: "320px" }}>
           <Doughnut data={data} options={config} />

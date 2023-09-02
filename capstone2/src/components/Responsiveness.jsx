@@ -153,6 +153,7 @@ const Responsiveness = () => {
                       chartData.oneMonth,
                       chartData.notResponding,
                     ],
+                    // borderColor: "rgba(255, 255, 255, 1)",
                     backgroundColor: "rgba(255, 99, 132, 0.5)",
                   },
                 ],
@@ -161,7 +162,7 @@ const Responsiveness = () => {
           </div>
         </div>
       ) : (
-        <h1>Loading.....</h1>
+        <h1>Loading...</h1>
       )}
     </div>
   );
