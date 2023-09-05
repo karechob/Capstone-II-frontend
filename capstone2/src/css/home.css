@@ -24,10 +24,11 @@ body {
   left: 50%;
   top: 30%;
   transform: translate(-50%, -50%);
-  font-size: 35px;
+  font-size: 38px;
   color: white;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  text-shadow: 4px 4px 5px rgba(247, 203, 203, 0.5);
   z-index: 2;
 }
 
