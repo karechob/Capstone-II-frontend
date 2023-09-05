@@ -21,11 +21,11 @@ function Metrics() {
 
   return (
     <div className="metrics-page">
+      <div className="metrics-btn">
+        <button onClick={handleAnalyze}>Back To Home Page</button>
+      </div>
       <div className="metrics-title-container">
-        <h1>Metrics</h1>
-        <button className="metrics-btn" onClick={handleAnalyze}>
-          Home
-        </button>
+        <h1>Analyzed Result</h1>
       </div>
       <div className="metrics-container">
         <div className="chart-pair-container">

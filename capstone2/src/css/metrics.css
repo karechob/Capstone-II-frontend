@@ -26,13 +26,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -15px;
 }
+
 .metrics-btn {
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
 }
+
 .thorough-prs {
   font-family: "Poppins", sans-serif;
 }
+
 .small-pie-chart {
   width: 320px;
   height: auto;
@@ -42,10 +49,12 @@
   padding: 10px;
   transition: all 0.5s ease;
 }
+
 .small-pie-chart:hover {
   background-color: rgba(139, 205, 255, 0.593);
   transition: all 0.5s ease;
 }
+
 .thorough-pr-metric-title {
   text-align: center;
   padding-top: 20px;
