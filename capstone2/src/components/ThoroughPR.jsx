@@ -18,7 +18,7 @@ function ThoroughPR() {
   const link = searchParams.get("link");
 
   const data = {
-    labels: ["ThoroughPRs", "Non-ThoroughPRs"],
+    labels: ["Pull requests with comment", "Pull requests without comment"],
     datasets: [
       {
         label: "Percent",
