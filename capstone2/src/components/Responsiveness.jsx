@@ -115,51 +115,43 @@ const Responsiveness = () => {
   }, [link, owner, repo]);
 
   return (
-    <div className="avg-time-to-merge">
+    <div className="avg-time-to-merge loading-div">
       {display ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ width: 600 }}>
-            <Bar
-              options={options}
-              data={{
-                // x-axis
-                labels: [
-                  "Within half an hour",
-                  "Within one hour",
-                  "Within three hours",
-                  "Within half a day",
-                  "Within one day",
-                  "Within one week",
-                  "Within one month",
-                  "No response",
-                ],
-                datasets: [
-                  {
-                    label: "Count",
-                    // y-axis
-                    data: [
-                      chartData.halfAnHour,
-                      chartData.anHour,
-                      chartData.threeHours,
-                      chartData.halfADay,
-                      chartData.aDay,
-                      chartData.aWeek,
-                      chartData.oneMonth,
-                      chartData.notResponding,
-                    ],
-                    // borderColor: "rgba(255, 255, 255, 1)",
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
-                  },
-                ],
-              }}
-            />
-          </div>
+        <div style={{ width: 600 }}>
+          <Bar
+            options={options}
+            data={{
+              // x-axis
+              labels: [
+                "Within half an hour",
+                "Within one hour",
+                "Within three hours",
+                "Within half a day",
+                "Within one day",
+                "Within one week",
+                "Within one month",
+                "No response",
+              ],
+              datasets: [
+                {
+                  label: "Count",
+                  // y-axis
+                  data: [
+                    chartData.halfAnHour,
+                    chartData.anHour,
+                    chartData.threeHours,
+                    chartData.halfADay,
+                    chartData.aDay,
+                    chartData.aWeek,
+                    chartData.oneMonth,
+                    chartData.notResponding,
+                  ],
+                  // borderColor: "rgba(255, 255, 255, 1)",
+                  backgroundColor: "rgba(255, 99, 132, 0.5)",
+                },
+              ],
+            }}
+          />
         </div>
       ) : (
         <h1>Loading...</h1>

@@ -76,14 +76,7 @@ const NewWork = () => {
   }, [link, owner, repo]);
 
   return (
-    <div
-      className="avg-time-to-merge"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className="avg-time-to-merge loading-div">
       {display ? (
         <div>
           <div style={{ width: 600 }}>

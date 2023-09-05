@@ -9,6 +9,7 @@ function DeploymentFrequency() {
   const [totalDeployments, setTotalDeployments] = useState(0);
   const [lastDeploymentTime, setLastDeploymentTime] = useState("");
   const [monthlyDeployments, setMonthlyDeployments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -40,6 +41,7 @@ function DeploymentFrequency() {
 
         console.log("deployments", formattedLastDeploymentTime);
         console.log("whats here", data);
+        setIsLoading(false);
       } catch (error) {
         console.log("error in fetching deployment frequency " + error);
       }
@@ -157,29 +159,35 @@ function DeploymentFrequency() {
   return (
     <div className="avg-time-to-merge">
       <h1 className="deployment-title">Deployment Frequency</h1>
-      <div>
-        <p>Total Deployments: {totalDeployments}</p>
-        <p>Last Deployment Time: {lastDeploymentTime}</p>
-        <div style={{ width: 600 }}>
-          {/* <Line data={chartData} options={chartOptions} /> */}
-          <Bar data={barChartData} options={barChartOptions} />
-          {/* {monthlyDeployments && (
-            <div>
-              {Object.entries(monthlyDeployments).map(([month, { count, weeks }]) => (
-                <div key={month}>
-                  <h3>{month}</h3>
-                  <p>Deployment Count: {count}</p>
-                  {weeks.map(weekObj => (
-                    <div key={weekObj.weekNumber}>
-                      <p>Week {weekObj.weekNumber}: {weekObj.date}</p>
+      <div className="loading-div">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            <p>Total Deployments: {totalDeployments}</p>
+            <p>Last Deployment Time: {lastDeploymentTime}</p>
+            <div style={{ width: 600 }}>
+              {/* <Line data={chartData} options={chartOptions} /> */}
+              <Bar data={barChartData} options={barChartOptions} />
+              {/* {monthlyDeployments && (
+                <div>
+                  {Object.entries(monthlyDeployments).map(([month, { count, weeks }]) => (
+                    <div key={month}>
+                      <h3>{month}</h3>
+                      <p>Deployment Count: {count}</p>
+                      {weeks.map(weekObj => (
+                        <div key={weekObj.weekNumber}>
+                          <p>Week {weekObj.weekNumber}: {weekObj.date}</p>
+                        </div>
+                      ))}
+                      <p>Overall Frequency for {month}: {yourFrequency(count, weeks.length)}</p>
                     </div>
                   ))}
-                  <p>Overall Frequency for {month}: {yourFrequency(count, weeks.length)}</p>
                 </div>
-              ))}
+              )} */}
             </div>
-          )} */}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

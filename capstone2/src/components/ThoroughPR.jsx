@@ -105,7 +105,7 @@ function ThoroughPR() {
   }, [link, owner, repo]);
 
   return (
-    <div className="thorough-prs">
+    <div className="thorough-prs loading-div">
       {/* <h1>Thorough PRs</h1>
       <h4>
         Thoroughly reviewed PRS is the percentage of merged pull requests with

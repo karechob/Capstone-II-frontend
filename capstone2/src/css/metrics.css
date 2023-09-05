@@ -96,3 +96,18 @@
 .deployment-title {
   text-align: center;
 }
+
+/* CSS for the loading div */
+.loading-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Add other styling properties as needed */
+  /* height: 100vh; */
+  /* Set the height to the viewport height for vertical centering */
+}
+
+/* CSS for the loading text (h1 element) */
+.loading-div h1 {
+  /* Add styles for the text if needed */
+}

@@ -81,14 +81,7 @@ const Rework = () => {
 
   return (
     <div className="avg-time-to-merge">
-      <div
-        className="pie-chart"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="pie-chart loading-div">
         {display ? (
           <div>
             <div style={{ width: 600 }}>
@@ -139,7 +132,7 @@ const Rework = () => {
                         lineHeight: 1.2,
                       },
                       ticks: {
-                        color: "white", 
+                        color: "white",
                       },
                     },
                     y: {
@@ -152,7 +145,7 @@ const Rework = () => {
                         lineHeight: 1.2,
                       },
                       ticks: {
-                        color: "white", 
+                        color: "white",
                       },
                     },
                   },

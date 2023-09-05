@@ -35,7 +35,7 @@ function MergeSuccessRate() {
         );
         const successRate = response.data.mergeSuccessRate;
         setMergeSuccessRate(successRate);
-        setRemainder(100.00 - successRate);
+        setRemainder(100.0 - successRate);
       } catch (error) {
         console.log(error);
       }
@@ -99,7 +99,7 @@ function MergeSuccessRate() {
   };
 
   return (
-    <div className="thorough-prs">
+    <div className="thorough-prs loading-div">
       {mergeSuccessRate === "" ? (
         <h1>Loading...</h1>
       ) : (

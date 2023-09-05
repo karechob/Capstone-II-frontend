@@ -96,13 +96,7 @@ function UnreviewedPR() {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          // flexDirection: "column",
-          // alignItems: "center",
-        }}
-      >
+      <div className="loading-div">
         {success === 0 && failure === 0 ? (
           <h1>Loading...</h1>
         ) : (
