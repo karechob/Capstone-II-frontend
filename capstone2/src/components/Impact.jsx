@@ -92,7 +92,7 @@ const Impact = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: `${totalChanges} Lines changed`,
+                    text: [`${totalChanges} Lines Changed`, "in Repo"],
                     align: "center",
                     color: "white",
                     font: {

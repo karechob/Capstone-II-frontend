@@ -108,8 +108,8 @@ const NewWork = () => {
                   title: {
                     display: true,
                     text: [
-                      "Lines of new code",
-                      "added per day (from 7 days ago)",
+                      "Lines of New Code",
+                      "Added Per Day (From 7 Days Ago)",
                     ],
                     align: "center",
                     color: "white",

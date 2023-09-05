@@ -76,13 +76,14 @@
 
 .impact-charts-container {
   display: flex;
+  align-items: center;
   gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .impact-chart {
-  width: 500px;
+  width: 600px;
   height: auto;
   border-radius: 20px;
   border: solid;

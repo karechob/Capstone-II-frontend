@@ -75,7 +75,10 @@ const LeadTime = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: "Lead Time for Changes",
+                    text: [
+                      "Lead Time for Changes",
+                      "Number of Change in the Repository by Each Day",
+                    ],
                     align: "center",
                     color: "white",
                     font: {

@@ -17,7 +17,7 @@ function Home() {
       </video>
       <div className="overlay"></div>
       <div className="project-name">
-        <h2>Repo Analytics</h2>
+        <h3>Repo Analytics</h3>
       </div>
       <div className="searchBar">
         <LinkPage />

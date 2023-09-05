@@ -57,7 +57,7 @@ const Responsiveness = () => {
       },
       title: {
         display: true,
-        text: "Responsiveness",
+        text: "Response Time to Comments",
         align: "center",
         color: "white",
         font: {
@@ -141,7 +141,7 @@ const Responsiveness = () => {
                 ],
                 datasets: [
                   {
-                    label: "Total response",
+                    label: "Count",
                     // y-axis
                     data: [
                       chartData.halfAnHour,
