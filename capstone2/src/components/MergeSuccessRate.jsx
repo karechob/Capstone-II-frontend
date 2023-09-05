@@ -55,11 +55,11 @@ function MergeSuccessRate() {
         data: [mergeSuccessRate, remainder],
         backgroundColor: [
           "rgb(80, 200, 120)", //green
-          "rgb(255,255,255)",
+          "rgb(222, 49, 99)", //red
         ],
-        hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(240,255,240)"],
+        hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
         borderColor: ["rgb(255,250,240)"],
-        borderWidth: [1],
+        // borderWidth: [1],
         hoverOffset: 4,
       },
     ],

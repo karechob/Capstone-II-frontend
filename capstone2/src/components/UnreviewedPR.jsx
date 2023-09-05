@@ -27,7 +27,7 @@ function UnreviewedPR() {
         ],
         hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
         borderColor: ["rgb(255,250,240)"],
-        borderWidth: [1],
+        // borderWidth: [1],
         hoverOffset: 4,
       },
     ],
