@@ -87,8 +87,10 @@ const NewWork = () => {
                   {
                     label: "Total Lines of New Code",
                     data: arr.map((ele) => ele[1]),
-                    borderColor: "rgba(255, 205, 86)",
-                    backgroundColor: "rgba(255, 255, 255)",
+                    borderColor: "rgb(255, 202, 77)",
+                    backgroundColor: "rgb(255, 248, 230)",
+                    pointRadius: 5,
+                    pointHoverRadius: 14,
                     tension: 0.1,
                   },
                 ],

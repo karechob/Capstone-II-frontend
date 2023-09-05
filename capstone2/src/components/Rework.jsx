@@ -92,8 +92,10 @@ const Rework = () => {
                     {
                       label: "Rework Code",
                       data: arr.map((ele) => ele[1]),
-                      borderColor: "rgba(194, 140, 255)",
-                      backgroundColor: "rgba(255, 255, 255)",
+                      borderColor: "rgb(187, 127, 255)",
+                      backgroundColor: "rgb(244, 234, 255)",
+                      pointRadius: 5,
+                      pointHoverRadius: 14,
                       tension: 0.1,
                     },
                   ],

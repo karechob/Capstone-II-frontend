@@ -41,10 +41,8 @@ const LeadTime = () => {
     <div className="avg-time-to-merge">
       <center>
         <div
-                    style={{
-            display: "flex",
-            // alignItems: 'center',
-            // justifyContent: 'center',
+          className="loading-div"
+          style={{
             width: "100%",
           }}
         >
@@ -62,11 +60,11 @@ const LeadTime = () => {
                     data: leadTime.commit_data.map((elements) => {
                       return elements.data.length;
                     }),
-                    borderColor: "red",
-                    backgroundColor: "pink",
+                    borderColor: "rgb(255, 55, 55)",
+                    backgroundColor: "rgb(255, 218, 218)",
                     // pointStyle: "rectRounded",
-                    // pointRadius: 5,
-                    // pointHoverRadius: 15,
+                    pointRadius: 5,
+                    pointHoverRadius: 14,
                   },
                 ],
               }}
