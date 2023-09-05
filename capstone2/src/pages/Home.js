@@ -2,7 +2,7 @@ import React from "react";
 import LinkPage from "../pages/LinkPage";
 import video from "../assets/background_video.mp4";
 import videoWebm from "../assets/background_video.webm";
-import '../css/home.css';
+import "../css/home.css";
 
 function Home() {
   return (
@@ -17,7 +17,7 @@ function Home() {
       </video>
       <div className="overlay"></div>
       <div className="project-name">
-        <h2>Project Name</h2>
+        <h2>Repo Analytics</h2>
       </div>
       <div className="searchBar">
         <LinkPage />
