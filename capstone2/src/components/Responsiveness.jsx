@@ -147,7 +147,7 @@ const Responsiveness = () => {
                     chartData.notResponding,
                   ],
                   // borderColor: "rgba(255, 255, 255, 1)",
-                  backgroundColor: "rgba(255, 99, 132, 0.5)",
+                  backgroundColor: "rgb(255, 99, 132)",
                 },
               ],
             }}

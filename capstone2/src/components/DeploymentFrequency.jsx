@@ -99,9 +99,9 @@ function DeploymentFrequency() {
       {
         label: "Deployment Frequency",
         data: monthlyDeploymentFrequencies,
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgba(75, 192, 192, 1)", // Border color
-        borderWidth: 1, // Border width
+        backgroundColor: "rgb(75, 192, 192)",
+        // borderColor: "rgba(75, 192, 192, 1)", // Border color
+        // borderWidth: 1, // Border width
       },
     ],
   };

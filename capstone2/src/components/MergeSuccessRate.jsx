@@ -48,7 +48,7 @@ function MergeSuccessRate() {
   }, [link, owner, repo]);
 
   const data = {
-    labels: ["Success Rate", "Remainder"],
+    labels: ["Merge success rate", "Merge unsuccess rate"],
     datasets: [
       {
         label: "Percentage",
