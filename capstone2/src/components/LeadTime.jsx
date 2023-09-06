@@ -56,7 +56,7 @@ const LeadTime = () => {
                 }),
                 datasets: [
                   {
-                    label: "Lead Time for Changes",
+                    label: "Number of Change in the Repository",
                     data: leadTime.commit_data.map((elements) => {
                       return elements.data.length;
                     }),
@@ -73,10 +73,7 @@ const LeadTime = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: [
-                      "Lead Time for Changes",
-                      "Number of Change in the Repository by Each Day",
-                    ],
+                    text: "Lead Time for Changes",
                     align: "center",
                     color: "white",
                     font: {
