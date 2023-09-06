@@ -47,19 +47,17 @@ const Responsiveness = () => {
       layout: {
         padding: 5,
       },
-
       legend: {
-        position: "top",
         display: true,
         fontColor: "white",
-        // position: "bottom",
+        position: "bottom",
         labels: {
           color: "#ffffff",
         },
       },
       title: {
         display: true,
-        text: "Responsiveness",
+        text: "Response Time to Comments",
         align: "center",
         color: "white",
         font: {
@@ -67,6 +65,18 @@ const Responsiveness = () => {
           size: 30,
           style: "normal",
           lineHeight: 1.6,
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
         },
       },
     },
@@ -105,53 +115,46 @@ const Responsiveness = () => {
   }, [link, owner, repo]);
 
   return (
-    <div className="avg-time-to-merge">
+    <div className="avg-time-to-merge loading-div">
       {display ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ width: 600 }}>
-            <Bar
-              options={options}
-              data={{
-                // x-axis
-                labels: [
-                  "within half hour",
-                  "within one hour",
-                  "within three hour",
-                  "withinin half a day",
-                  "within one day",
-                  "within one week",
-                  "within one month",
-                  "no response",
-                ],
-                datasets: [
-                  {
-                    label: "Total response",
-                    // y-axis
-                    data: [
-                      chartData.halfAnHour,
-                      chartData.anHour,
-                      chartData.threeHours,
-                      chartData.halfADay,
-                      chartData.aDay,
-                      chartData.aWeek,
-                      chartData.oneMonth,
-                      chartData.notResponding,
-                    ],
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
-                  },
-                ],
-              }}
-            />
-          </div>
+        <div style={{ width: 600 }}>
+          <Bar
+            options={options}
+            data={{
+              // x-axis
+              labels: [
+                "Within half an hour",
+                "Within one hour",
+                "Within three hours",
+                "Within half a day",
+                "Within one day",
+                "Within one week",
+                "Within one month",
+                "No response",
+              ],
+              datasets: [
+                {
+                  label: "Count",
+                  // y-axis
+                  data: [
+                    chartData.halfAnHour,
+                    chartData.anHour,
+                    chartData.threeHours,
+                    chartData.halfADay,
+                    chartData.aDay,
+                    chartData.aWeek,
+                    chartData.oneMonth,
+                    chartData.notResponding,
+                  ],
+                  // borderColor: "rgba(255, 255, 255, 1)",
+                  backgroundColor: "rgb(255, 99, 132)",
+                },
+              ],
+            }}
+          />
         </div>
       ) : (
-        <h1>Loading.....</h1>
+        <h1>Loading...</h1>
       )}
     </div>
   );

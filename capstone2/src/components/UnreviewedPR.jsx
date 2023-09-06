@@ -27,7 +27,7 @@ function UnreviewedPR() {
         ],
         hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
         borderColor: ["rgb(255,250,240)"],
-        borderWidth: [1],
+        // borderWidth: [1],
         hoverOffset: 4,
       },
     ],
@@ -96,13 +96,7 @@ function UnreviewedPR() {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          // flexDirection: "column",
-          // alignItems: "center",
-        }}
-      >
+      <div className="loading-div">
         {success === 0 && failure === 0 ? (
           <h1>Loading...</h1>
         ) : (

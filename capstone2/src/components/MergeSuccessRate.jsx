@@ -35,7 +35,7 @@ function MergeSuccessRate() {
         );
         const successRate = response.data.mergeSuccessRate;
         setMergeSuccessRate(successRate);
-        setRemainder(100.00 - successRate);
+        setRemainder(100.0 - successRate);
       } catch (error) {
         console.log(error);
       }
@@ -48,18 +48,18 @@ function MergeSuccessRate() {
   }, [link, owner, repo]);
 
   const data = {
-    labels: ["Success Rate", "Remainder"],
+    labels: ["Merge success rate", "Merge unsuccess rate"],
     datasets: [
       {
         label: "Percentage",
         data: [mergeSuccessRate, remainder],
         backgroundColor: [
           "rgb(80, 200, 120)", //green
-          "rgb(255,255,255)",
+          "rgb(222, 49, 99)", //red
         ],
-        hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(240,255,240)"],
+        hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
         borderColor: ["rgb(255,250,240)"],
-        borderWidth: [1],
+        // borderWidth: [1],
         hoverOffset: 4,
       },
     ],
@@ -99,9 +99,9 @@ function MergeSuccessRate() {
   };
 
   return (
-    <div className="thorough-prs">
-      {mergeSuccessRate === "" ? (
-        <p>Percentage of Merge Success Rate: Calculating... One Moment...</p>
+    <div className="thorough-prs loading-div">
+      {mergeSuccessRate === 0 ? (
+        <h1>Loading...</h1>
       ) : (
         <div style={{ width: "320px", height: "320px" }}>
           <Doughnut data={data} options={config} />

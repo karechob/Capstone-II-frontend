@@ -37,7 +37,7 @@ function LinkPage() {
         onChange={handleLink}
         placeholder="Enter GitHub repository link"
       />
-      <button onClick={handleAnalyze}>Analyze Metrics</button>
+      <button onClick={handleAnalyze}>Analyze Repository</button>
 
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>

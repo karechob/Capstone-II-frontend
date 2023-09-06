@@ -18,7 +18,7 @@ function ThoroughPR() {
   const link = searchParams.get("link");
 
   const data = {
-    labels: ["ThoroughPRs", "Non-ThoroughPRs"],
+    labels: ["Pull requests with comment", "Pull requests without comment"],
     datasets: [
       {
         label: "Percent",
@@ -29,7 +29,7 @@ function ThoroughPR() {
         ],
         hoverBackgroundColor: ["rgb(89, 224, 134)", "rgb(247, 54, 109)"],
         borderColor: ["rgb(255,250,240)"],
-        borderWidth: [1],
+        // borderWidth: [1],
         hoverOffset: 4,
       },
     ],
@@ -105,7 +105,7 @@ function ThoroughPR() {
   }, [link, owner, repo]);
 
   return (
-    <div className="thorough-prs">
+    <div className="thorough-prs loading-div">
       {/* <h1>Thorough PRs</h1>
       <h4>
         Thoroughly reviewed PRS is the percentage of merged pull requests with
@@ -120,7 +120,7 @@ function ThoroughPR() {
       <p>Repo: {repo} </p> */}
 
       {percentage === "" ? (
-        <p>Percentage of Thorough PRs: Calculating... One Moment...</p>
+        <h1>Loading...</h1>
       ) : (
         // <p>Percentage of Thorough PRs: {percentage}% </p>
         <div style={{ width: "320px", height: "320px" }}>

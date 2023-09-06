@@ -76,14 +76,7 @@ const NewWork = () => {
   }, [link, owner, repo]);
 
   return (
-    <div
-      className="avg-time-to-merge"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className="avg-time-to-merge loading-div">
       {display ? (
         <div>
           <div style={{ width: 600 }}>
@@ -94,8 +87,10 @@ const NewWork = () => {
                   {
                     label: "Total Lines of New Code",
                     data: arr.map((ele) => ele[1]),
-                    borderColor: "rgba(255, 205, 86)",
-                    backgroundColor: "rgba(255, 255, 255)",
+                    borderColor: "rgb(255, 202, 77)",
+                    backgroundColor: "rgb(255, 248, 230)",
+                    pointRadius: 5,
+                    pointHoverRadius: 14,
                     tension: 0.1,
                   },
                 ],
@@ -108,8 +103,8 @@ const NewWork = () => {
                   title: {
                     display: true,
                     text: [
-                      "Lines of new code",
-                      "added per day (from 7 days ago)",
+                      "Lines of New Code",
+                      "Added Per Day (From 7 Days Ago)",
                     ],
                     align: "center",
                     color: "white",
@@ -132,12 +127,24 @@ const NewWork = () => {
                     },
                   },
                 },
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "white",
+                    },
+                  },
+                  y: {
+                    ticks: {
+                      color: "white",
+                    },
+                  },
+                },
               }}
             />
           </div>
         </div>
       ) : (
-        <h1>Loading.....</h1>
+        <h1>Loading...</h1>
       )}
     </div>
   );
