@@ -56,7 +56,7 @@ const LeadTime = () => {
                 }),
                 datasets: [
                   {
-                    label: "Number of Change in the Repository",
+                    label: "Number of Commits in the Repository",
                     data: leadTime.commit_data.map((elements) => {
                       return elements.data.length;
                     }),

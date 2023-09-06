@@ -100,7 +100,7 @@ function MergeSuccessRate() {
 
   return (
     <div className="thorough-prs loading-div">
-      {mergeSuccessRate === "" ? (
+      {mergeSuccessRate === 0 ? (
         <h1>Loading...</h1>
       ) : (
         <div style={{ width: "320px", height: "320px" }}>

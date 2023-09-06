@@ -48,6 +48,7 @@ const AverageTimeToMerge = () => {
 
     async function fetchPullRequests(owner, repo) {
       try {
+        setLoading(true);
         const response = await axios.get(
           `${process.env.REACT_APP_BACKEND_URL}api/github/avgTimeToMerge`,
           {
@@ -63,6 +64,8 @@ const AverageTimeToMerge = () => {
         setAvgTimeToMerge(avgTime);
       } catch (error) {
         console.log("error in fetching pull requests " + error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -74,7 +77,7 @@ const AverageTimeToMerge = () => {
 
   return (
     <div className="avg-time-to-merge">
-      {loading && <div>Loading...</div>}
+      {loading && <h1 className="loading-div">Loading...</h1>}
       {avgTimeToMerge !== null && (
         <div>
           <Bar

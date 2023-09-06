@@ -158,12 +158,12 @@ function DeploymentFrequency() {
 
   return (
     <div className="avg-time-to-merge">
-      <h1 className="deployment-title">Deployment Frequency</h1>
       <div className="loading-div">
         {isLoading ? (
-          <p>Loading...</p>
+          <h1>Loading...</h1>
         ) : (
           <div>
+            <h1 className="deployment-title">Deployment Frequency</h1>
             <p>Total Deployments: {totalDeployments}</p>
             <p>Last Deployment Time: {lastDeploymentTime}</p>
             <div style={{ width: 600 }}>
